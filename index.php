@@ -1,5 +1,5 @@
 <?php
-include "assets/php/get-history.php";
+include "get-history.php";
 session_start();
 if(isset($_SESSION['qrcode'])){
   $qrcode = $_SESSION['qrcode'];
@@ -32,21 +32,21 @@ if(isset($_SESSION['qrcode'])){
   <main>
     <div class="container">
         <div class="section">
-          <form class="form-control mb-5" action="assets/php/generate-qrcode.php" method="post">
+          <form class="form-control mb-5" action="generate-qrcode.php" method="post">
             <div class="form-floating mb-3">
-              <input type="text" class="form-control" name="text" placeholder="String" value="<?php echo $text; ?>">
+              <input type="text" class="form-control" name="text" placeholder="String" value="<?php echo $text ?? ''; ?>">
               <label for="floatingInput">String : </label>
             </div>
             <div class="row">
               <div class="col">
                 <div class="form-floating mb-3">
-                  <input type="number" class="form-control" name="image_size" placeholder="Image Size" value="<?php echo $image_size; ?>">
+                  <input type="number" class="form-control" name="image_size" placeholder="Image Size" value="<?php echo $image_size ?? 300; ?>">
                   <label for="floatingInput">Image Size : </label>
                 </div>
               </div>
               <div class="col">
                 <div class="form-floating mb-3">
-                  <input type="number" class="form-control" name="font_size" placeholder="Font Size" value="<?php echo $font_size; ?>">
+                  <input type="number" class="form-control" name="font_size" placeholder="Font Size" value="<?php echo $font_size ?? '20'; ?>">
                   <label for="floatingInput">Font Size : </label>
                 </div>
               </div>
